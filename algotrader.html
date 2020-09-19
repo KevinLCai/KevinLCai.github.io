@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Cryptocurrency Dashboard and Trading Algorithm</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Cryptocurrency Dashboard and Trading Algorithm</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Cryptocurrency Dashboard and Trading Algorithm</h2>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<h3>Technologies used:</h3>
+								<p>Python – TA-Lib and Backtrader, Javascript, HTML, CSS, Deployed on Amazon Web Services</p>
+
+								<hr />
+
+								<h3>How it works:</h3>
+								<h3>Dashboard</h3>
+								<p>We connect with the Binance client to obtain live cryptocurrency data, we pass this data as a JSON to a Lightweight Financial Chart. This displays a live chart of cryptocurrency data.</p>
+								<p>From the Binance client we check our cryptocurrency wallet's balance, and identify all currencies that have a positive balance and display them to the user.</p>
+								<p>Using the balances we obtain from the Binance client, we can find the minutely trading price for that cryptocurrency and calculate its value in dollars. We sum this value and display it to the user, write the data to a .csv file and upload it to a lightweight chart to 
+									display the change in the value of the portfolio over time.									
+								</p>
+								<hr />
+								<h3>Trading Algorithm</h3>
+								<p>Data is received using Binance's webscocket client. This gives us a stream of candlestick data. Once the daily candle has closed, we write the Time, Open, High, Low, Close and Volume of the candle to a .csv file.</p>
+
+								<p>With our candlestick data, we use the Python BTA-Lib library to calculate the 'fast' moving average (12 days), the 'slow' moving average (26 days) and the Stochastic Indicator (12 days). When we detect a crossover - 
+									when the 'fast' moving average either goes above or below the 'slow' moving average we will check to buy or sell (respectively) the cryptocurrency. We verify our signals using the Stochastic Indicator, checking if the 
+									cryptocurrency is overbough or oversold. The Stochastic Indicator is a measure betweeon 0 and 100, typically overbought signals are when the indicator rises above 80 and oversold when it falls below 20. In this case, we are
+									simply checking if the currency is overbought or oversold relative to 50. This encourages more trades to occur and gives more weight to the moving average crossover heuristic.
+								</p>
+
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+				
+					<footer id="footer">
+						<h4><a href="https://github.com/KevinLCai/CryptocurrencyDashboard">Click here for the sourcecode</a></h4>
+						<h5>(This requires a Binance API key to work, which has been omitted for security reasons)</h5>
+						<h4>Media Links:</h4>
+						<ul class="icons">
+							<li><a href="https://github.com/KevinLCai" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/kevin-cai-524572173/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Kevin Cai</li>
+							<li>KevinLCai@Outlook.com</li>
+						</ul>
+					</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
